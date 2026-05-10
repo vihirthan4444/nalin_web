@@ -1,161 +1,225 @@
-import { Search, ShoppingCart, ArrowRight, Monitor, Laptop, Truck, ShieldCheck, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { Search, ShoppingCart, ChevronDown, Bell } from 'lucide-react';
 
 const App = () => {
   return (
-    <div style={{ paddingBottom: '100px' }}>
-      
-      {/* Floating Navigation Pill */}
-      <nav className="floating-nav">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <img src="/logo_only.svg" alt="Nalin IT Logo" style={{ height: '28px' }} />
-          <span style={{ fontWeight: 800, fontFamily: 'Outfit', fontSize: '20px', letterSpacing: '-0.5px' }}>NALIN IT</span>
-        </div>
-        
-        <div style={{ display: 'flex', gap: '32px', fontWeight: 500, fontSize: '15px' }}>
-          <a href="#" style={{ color: 'var(--brand-primary)' }}>Store</a>
-          <a href="#">Mac</a>
-          <a href="#">PC</a>
-          <a href="#">Components</a>
-          <a href="#">Showrooms</a>
-        </div>
-
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <button><Search size={20} /></button>
-          <button style={{ position: 'relative' }}>
-            <ShoppingCart size={20} />
-            <span style={{
-              position: 'absolute', top: '-4px', right: '-4px',
-              backgroundColor: 'var(--brand-primary)', color: 'white',
-              fontSize: '10px', fontWeight: 800, width: '16px', height: '16px',
-              borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'
-            }}>0</span>
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero Typography */}
-      <header style={{ paddingTop: '180px', paddingBottom: '80px', textAlign: 'center' }}>
+    <div>
+      {/* Top Utility Bar */}
+      <div className="top-bar">
         <div className="container">
-          <div style={{ display: 'inline-block', border: '1px solid var(--border-color)', padding: '6px 16px', borderRadius: '100px', fontSize: '13px', fontWeight: 600, marginBottom: '24px' }}>
-            <span style={{ color: 'var(--brand-primary)' }}>New:</span> HP EliteBook Series Available Now
+          <div className="top-bar-links">
+            <span>Hi! <a href="#" style={{ color: 'var(--text-blue)', fontWeight: 600 }}>Sign in</a> or <a href="#" style={{ color: 'var(--text-blue)' }}>register</a></span>
+            <a href="#">Daily Deals</a>
+            <a href="#">Brand Outlet</a>
+            <a href="#">Help & Contact</a>
           </div>
-          <h1 style={{ fontSize: '84px', fontWeight: 800, letterSpacing: '-3px', lineHeight: 1.1, marginBottom: '24px' }}>
-            Technology,<br />
-            Curated for You.
-          </h1>
-          <p style={{ fontSize: '20px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 40px', lineHeight: 1.5 }}>
-            Northern Sri Lanka's most trusted destination for premium laptops, workstations, and enterprise hardware.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
-            <button className="btn-dark">Shop All Products <ArrowRight size={18} /></button>
-            <button className="btn-outline">Our Showrooms</button>
+          <div className="top-bar-links">
+            <a href="#">Ship to: Sri Lanka</a>
+            <a href="#">Sell</a>
+            <a href="#">Watchlist <ChevronDown size={12} style={{ display: 'inline' }} /></a>
+            <a href="#" style={{ display: 'flex', alignItems: 'center' }}><Bell size={16} /></a>
+            <a href="#" style={{ display: 'flex', alignItems: 'center' }}><ShoppingCart size={16} /></a>
           </div>
+        </div>
+      </div>
+
+      {/* Main Header & Search */}
+      <header className="main-header">
+        <div className="container header-inner">
+          <img src="/full_logo.svg" alt="Nalin IT" style={{ height: '40px', cursor: 'pointer' }} />
+          
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)', cursor: 'pointer' }}>
+            Shop by <br/> category <ChevronDown size={14} />
+          </div>
+
+          <div className="search-container">
+            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '16px', color: 'var(--text-muted)' }}>
+              <Search size={20} />
+            </div>
+            <input type="text" className="search-input" placeholder="Search for anything" />
+            <select className="category-select">
+              <option>All Categories</option>
+              <option>Laptops</option>
+              <option>Desktops</option>
+              <option>Monitors</option>
+              <option>Printers</option>
+            </select>
+          </div>
+          
+          <button className="search-btn">Search</button>
+          
+          <a href="#" style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Advanced</a>
         </div>
       </header>
 
-      {/* Bento Box Grid */}
-      <section className="container">
-        <div className="bento-grid">
-          
-          {/* Main Big Block */}
-          <div className="bento-item bento-col-2 bento-row-2" style={{ backgroundColor: '#f1f5f9' }}>
-            <div className="badge">Laptops</div>
-            <div style={{ padding: '40px', position: 'relative', zIndex: 1 }}>
-              <h2 style={{ fontSize: '36px', fontWeight: 800, marginBottom: '12px' }}>Power Meets Portability.</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '16px', maxWidth: '300px' }}>Discover the latest ultra-thin and gaming laptops from HP, Dell, and ASUS.</p>
-            </div>
-            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80" alt="Laptops" className="zoom-img" style={{ position: 'absolute', bottom: 0, left: 0, height: '70%', objectPosition: 'bottom' }} />
-          </div>
-
-          {/* Top Right Wide Block */}
-          <div className="bento-item bento-col-2" style={{ backgroundColor: 'var(--brand-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px' }}>
-            <div style={{ position: 'absolute', top: 0, right: 0, width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}></div>
-            <div>
-              <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '16px' }}>Build Your Dream Setup.</h2>
-              <p style={{ opacity: 0.8, marginBottom: '24px', fontSize: '18px' }}>Custom PCs, high-end components, and professional monitors.</p>
-              <button style={{ backgroundColor: 'white', color: 'var(--brand-primary)', padding: '12px 24px', borderRadius: '100px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                Explore Components <ArrowRight size={16} />
-              </button>
-            </div>
-          </div>
-
-          {/* Small Blocks */}
-          <div className="bento-item flex-center" style={{ flexDirection: 'column', textAlign: 'center', padding: '32px' }}>
-            <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--brand-primary)' }}>
-              <ShieldCheck size={32} />
-            </div>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '8px' }}>Official Agent Warranty</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>100% genuine products backed by full agent warranty.</p>
-          </div>
-
-          <div className="bento-item flex-center" style={{ flexDirection: 'column', textAlign: 'center', padding: '32px' }}>
-            <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--brand-primary)' }}>
-              <MapPin size={32} />
-            </div>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '8px' }}>4 Showrooms</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Experience our tech firsthand in Jaffna, Kilinochchi & Mannar.</p>
-          </div>
-
-          {/* Bottom Full Wide Block */}
-          <div className="bento-item bento-col-4" style={{ display: 'flex', alignItems: 'stretch' }}>
-            <div style={{ flex: '0 0 40%', padding: '48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRight: '1px solid var(--border-color)' }}>
-              <div className="badge" style={{ position: 'relative', top: 0, left: 0, display: 'inline-block', width: 'max-content', marginBottom: '24px' }}>New Arrival</div>
-              <h2 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '16px' }}>HP Elite Dragonfly G3</h2>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '32px', fontSize: '16px' }}>The ultimate enterprise convertible. Ultralight, powerful, and secure.</p>
-              <div style={{ fontSize: '24px', fontWeight: 800, fontFamily: 'Outfit' }}>Rs. 420,000</div>
-            </div>
-            <div style={{ flex: '1', position: 'relative', backgroundColor: '#f8fafc' }}>
-               <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80" alt="HP Elite Dragonfly" className="zoom-img" />
-            </div>
-          </div>
-
+      {/* Category Nav Strip */}
+      <nav className="cat-nav">
+        <div className="container">
+          <ul>
+            <li><a href="#" style={{ color: 'var(--text-main)', fontWeight: 600 }}>Home</a></li>
+            <li><a href="#">Saved</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Computers & Tablets</a></li>
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">PC Components</a></li>
+            <li><a href="#">Monitors</a></li>
+            <li><a href="#">Printers & Supplies</a></li>
+            <li><a href="#">Networking</a></li>
+          </ul>
         </div>
-      </section>
+      </nav>
 
-      {/* Super Minimal Footer */}
-      <footer className="container" style={{ marginTop: '120px', borderTop: '1px solid var(--border-color)', padding: '60px 0' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <img src="/logo_only.svg" alt="Nalin IT Logo" style={{ height: '24px' }} />
-              <span style={{ fontWeight: 800, fontFamily: 'Outfit', fontSize: '18px', letterSpacing: '-0.5px' }}>NALIN IT</span>
-            </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '250px' }}>
-              Northern Province's leading IT provider. Supplying high-performance technology since 2009.
+      <main className="container">
+        {/* Promo Banner */}
+        <div className="promo-banner">
+          <div className="promo-content">
+            <h2 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '16px' }}>
+              Upgrade Your Setup. <br/> Boost Your Productivity.
+            </h2>
+            <p style={{ fontSize: '16px', color: 'var(--text-main)', marginBottom: '24px' }}>
+              Save up to 30% on premium business laptops and accessories. Official agent warranty included.
             </p>
+            <button style={{ 
+              backgroundColor: 'var(--text-main)', color: 'white', padding: '12px 24px', 
+              fontSize: '16px', fontWeight: 600, width: 'max-content', borderRadius: '4px' 
+            }}>
+              Shop now
+            </button>
+          </div>
+          <div className="promo-image"></div>
+        </div>
+
+        {/* Circular Categories */}
+        <div className="section-header">
+          <h2 className="section-title">Explore Popular Categories</h2>
+          <a href="#" className="section-link">See all</a>
+        </div>
+        
+        <div className="circle-grid">
+          {[
+            { name: 'Gaming Laptops', img: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Business PCs', img: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Curved Monitors', img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Graphics Cards', img: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Printers', img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Storage', img: 'https://images.unsplash.com/photo-1531492746076-161ca9bcad58?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Networking', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=200&q=80' },
+            { name: 'Accessories', img: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=200&q=80' },
+          ].map((cat, i) => (
+            <div key={i} className="circle-cat">
+              <div className="circle-img">
+                <img src={cat.img} alt={cat.name} />
+              </div>
+              <div className="circle-title">{cat.name}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Daily Deals Grid */}
+        <div className="section-header">
+          <h2 className="section-title">Today's Deals – All With Free Shipping</h2>
+          <a href="#" className="section-link">See all deals</a>
+        </div>
+
+        <div className="dense-grid">
+          {[
+            { title: 'HP EliteBook 840 G8 14" FHD Core i5-1135G7 16GB 512GB SSD W10P', price: '245,000', oldPrice: '280,000', img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=400&q=80' },
+            { title: 'Lenovo ThinkPad T14 Gen 2 14" FHD IPS Core i7-1165G7', price: '295,000', img: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80' },
+            { title: 'ASUS ROG Strix G15 15.6" 144Hz RTX 3060 Gaming Laptop', price: '385,000', oldPrice: '410,000', img: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80' },
+            { title: 'ViewSonic VX2758A-2K-PRO 27" 180Hz 2K QHD IPS Monitor', price: '85,000', img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=400&q=80' },
+            { title: 'Canon ImageClass LBP 6030 Laser Printer Mono', price: '45,000', oldPrice: '52,000', img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80' },
+            { title: 'HP ProDesk 280 G9 Intel Core i7-14700 Desktop Computer', price: '215,000', img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80' },
+            { title: 'Samsung 980 PRO 1TB PCIe NVMe Gen4 Internal Gaming SSD', price: '28,500', oldPrice: '35,000', img: 'https://images.unsplash.com/photo-1531492746076-161ca9bcad58?auto=format&fit=crop&w=400&q=80' },
+          ].map((item, i) => (
+            <div key={i} className="product-card">
+              <div className="product-img-wrapper">
+                <img src={item.img} alt="Product" className="product-img" />
+              </div>
+              <div className="product-info">
+                <div className="product-title">{item.title}</div>
+                <div className="product-price">Rs. {item.price}</div>
+                {item.oldPrice && <div className="product-old-price">Rs. {item.oldPrice}</div>}
+                <div className="product-shipping">Free shipping</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </main>
+
+      {/* Massive Multi-Column Footer */}
+      <footer>
+        <div className="container">
+          <div className="footer-grid">
+            <div className="footer-col">
+              <h4>Buy</h4>
+              <ul>
+                <li><a href="#">Registration</a></li>
+                <li><a href="#">Nalin IT Money Back Guarantee</a></li>
+                <li><a href="#">Bidding & buying help</a></li>
+                <li><a href="#">Stores</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>Sell</h4>
+              <ul>
+                <li><a href="#">Start selling</a></li>
+                <li><a href="#">Learn to sell</a></li>
+                <li><a href="#">Affiliates</a></li>
+              </ul>
+              <h4 style={{ marginTop: '24px' }}>Tools & apps</h4>
+              <ul>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Security center</a></li>
+                <li><a href="#">Site map</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>Stay connected</h4>
+              <ul>
+                <li><a href="#">Nalin IT's Blogs</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>About Nalin IT</h4>
+              <ul>
+                <li><a href="#">Company info</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Investors</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Government relations</a></li>
+                <li><a href="#">Advertise with us</a></li>
+                <li><a href="#">Policies</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>Help & Contact</h4>
+              <ul>
+                <li><a href="#">Seller Information Center</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+              <h4 style={{ marginTop: '24px' }}>Showrooms</h4>
+              <ul>
+                <li>Nalin IT Exclusive</li>
+                <li>HP World Northern</li>
+                <li>Nalin IT Kilinochchi</li>
+                <li>Nalin IT Mannar</li>
+              </ul>
+            </div>
           </div>
           
-          <div style={{ display: 'flex', gap: '80px' }}>
-            <div>
-              <h4 style={{ fontWeight: 700, marginBottom: '24px', fontSize: '15px' }}>Products</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', color: 'var(--text-muted)', fontSize: '14px' }}>
-                <li>Laptops</li>
-                <li>Desktops</li>
-                <li>Monitors</li>
-                <li>Accessories</li>
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ fontWeight: 700, marginBottom: '24px', fontSize: '15px' }}>Company</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', color: 'var(--text-muted)', fontSize: '14px' }}>
-                <li>About Us</li>
-                <li>Contact</li>
-                <li>Terms & Privacy</li>
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ fontWeight: 700, marginBottom: '24px', fontSize: '15px' }}>Showrooms</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', color: 'var(--text-muted)', fontSize: '14px' }}>
-                <li>Jaffna (Exclusive)</li>
-                <li>Jaffna (HP World)</li>
-                <li>Kilinochchi</li>
-                <li>Mannar</li>
-              </ul>
-            </div>
+          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', display: 'flex', justifyContent: 'center', gap: '12px' }}>
+            <span>Copyright © 2009-2026 Nalin Information Technologies. All Rights Reserved.</span>
+            <a href="#" style={{ textDecoration: 'underline' }}>Accessibility</a>
+            <a href="#" style={{ textDecoration: 'underline' }}>User Agreement</a>
+            <a href="#" style={{ textDecoration: 'underline' }}>Privacy</a>
+            <a href="#" style={{ textDecoration: 'underline' }}>Payments Terms of Use</a>
+            <a href="#" style={{ textDecoration: 'underline' }}>Cookies</a>
           </div>
         </div>
       </footer>
-
     </div>
   );
 };
