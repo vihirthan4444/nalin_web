@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Search, ShoppingCart, ChevronRight, Monitor, Laptop, 
   Cpu, HardDrive, Headphones, Printer, MapPin, 
@@ -92,7 +92,7 @@ const App = () => {
       {/* Hero Section */}
       <header style={{
         position: 'relative',
-        padding: '100px 0 120px',
+        padding: '40px 0 80px',
         overflow: 'hidden',
         backgroundColor: 'var(--surface-100)'
       }}>
@@ -256,53 +256,53 @@ const App = () => {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '28px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
             {[
-              { name: 'HP OMEN 32C QHD 165Hz Curved', cat: 'Monitors', price: '125,000', badge: 'NEW', img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=400&q=80' },
-              { name: 'ASUS ExpertCenter D500ME i5', cat: 'Desktops', price: '210,000', badge: 'HOT', img: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80' },
-              { name: 'MSI Thin 15 B13UC i5 Gaming', cat: 'Laptops', price: '285,000', img: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80' },
-              { name: 'Canon ImageClass LBP 6030', cat: 'Printers', price: '45,000', img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80' },
+              { name: 'HP OMEN 32C QHD 165Hz Curved', cat: 'Monitors', price: '125,000', badge: 'NEW', img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80' },
+              { name: 'ASUS ExpertCenter D500ME i5', cat: 'Desktops', price: '210,000', badge: 'HOT', img: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=600&q=80' },
+              { name: 'MSI Thin 15 B13UC i5 Gaming', cat: 'Laptops', price: '285,000', img: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80' },
+              { name: 'Canon ImageClass LBP 6030', cat: 'Printers', price: '45,000', img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80' },
             ].map((product, i) => (
               <div key={i} className="card-hover" style={{
-                backgroundColor: 'white', borderRadius: '16px', overflow: 'hidden',
-                border: '1px solid var(--surface-300)', position: 'relative',
-                display: 'flex', flexDirection: 'column'
+                backgroundColor: 'white', borderRadius: '24px', overflow: 'hidden',
+                border: '1px solid var(--surface-400)', position: 'relative',
+                display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
               }}>
                 {product.badge && (
                   <span style={{ 
-                    position: 'absolute', top: '16px', left: '16px', zIndex: 10,
+                    position: 'absolute', top: '20px', left: '20px', zIndex: 10,
                     backgroundColor: product.badge === 'NEW' ? 'var(--status-new)' : 'var(--status-sale)', 
-                    color: 'white', padding: '6px 12px', borderRadius: '20px', 
-                    fontSize: '11px', fontWeight: 800, letterSpacing: '0.5px'
+                    color: 'white', padding: '6px 14px', borderRadius: '30px', 
+                    fontSize: '11px', fontWeight: 800, letterSpacing: '0.5px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                   }}>{product.badge}</span>
                 )}
                 <div style={{ 
-                  height: '240px', backgroundColor: 'var(--surface-200)', 
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px'
+                  height: '260px', backgroundColor: 'var(--surface-200)', 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px'
                 }}>
-                  <img src={product.img} alt={product.name} style={{ mixBlendMode: 'multiply', maxHeight: '100%', objectFit: 'contain' }} />
+                  <img src={product.img} alt={product.name} style={{ mixBlendMode: 'multiply', maxHeight: '100%', objectFit: 'contain', transition: 'transform 0.4s ease' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'} />
                 </div>
-                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ color: 'var(--text-500)', fontSize: '13px', fontWeight: 500, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ color: 'var(--text-500)', fontSize: '12px', fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>
                     {product.cat}
                   </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '16px', lineHeight: 1.4, color: 'var(--text-900)', flex: 1 }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '20px', lineHeight: 1.5, color: 'var(--text-900)', flex: 1, fontFamily: 'Outfit' }}>
                     {product.name}
                   </h3>
-                  <div className="flex-between">
-                    <div style={{ fontSize: '20px', fontWeight: 800, color: 'var(--brand-primary)', fontFamily: 'Outfit' }}>
+                  <div className="flex-between" style={{ borderTop: '1px solid var(--surface-300)', paddingTop: '20px' }}>
+                    <div style={{ fontSize: '22px', fontWeight: 800, color: 'var(--brand-primary)', fontFamily: 'Outfit', letterSpacing: '-0.5px' }}>
                       Rs. {product.price}
                     </div>
                     <button style={{ 
-                      width: '44px', height: '44px', borderRadius: '12px', 
-                      backgroundColor: 'var(--surface-200)', color: 'var(--brand-primary)',
+                      width: '44px', height: '44px', borderRadius: '50%', 
+                      backgroundColor: 'var(--brand-light)', color: 'var(--brand-primary)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                     }} 
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--brand-primary)'; e.currentTarget.style.color = 'white'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--surface-200)'; e.currentTarget.style.color = 'var(--brand-primary)'; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--brand-primary)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(43,59,143,0.2)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--brand-light)'; e.currentTarget.style.color = 'var(--brand-primary)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                     >
-                      <ShoppingCart size={20} />
+                      <ShoppingCart size={20} strokeWidth={2.5} />
                     </button>
                   </div>
                 </div>
@@ -313,22 +313,23 @@ const App = () => {
       </section>
 
       {/* Trust / Features Section */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--text-900)', color: 'white', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '400px', height: '100%', background: 'var(--brand-primary)', opacity: 0.1, transform: 'skewX(-20deg) translateX(100px)' }}></div>
+      <section style={{ padding: '100px 0', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', color: 'white', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '400px', height: '100%', background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1))', opacity: 0.8, transform: 'skewX(-20deg) translateX(100px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(43, 59, 143, 0.4)', filter: 'blur(80px)' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '48px' }}>
             {[
-              { icon: <ShieldCheck size={40} />, title: 'Genuine Warranty', desc: '100% authentic products with official agent warranty.' },
-              { icon: <MapPin size={40} />, title: '4 Showrooms', desc: 'Visit us in Jaffna, Kilinochchi, and Mannar.' },
-              { icon: <Clock size={40} />, title: '15+ Years Exp', desc: 'Trusted by the Northern Province since 2009.' },
-              { icon: <Truck size={40} />, title: 'Island-wide Delivery', desc: 'Free shipping on all orders over Rs. 500,000.' }
+              { icon: <ShieldCheck size={44} strokeWidth={1.5} />, title: 'Genuine Warranty', desc: '100% authentic products with official agent warranty.' },
+              { icon: <MapPin size={44} strokeWidth={1.5} />, title: '4 Showrooms', desc: 'Visit us in Jaffna, Kilinochchi, and Mannar.' },
+              { icon: <Clock size={44} strokeWidth={1.5} />, title: '15+ Years Exp', desc: 'Trusted by the Northern Province since 2009.' },
+              { icon: <Truck size={44} strokeWidth={1.5} />, title: 'Island-wide Delivery', desc: 'Free shipping on all orders over Rs. 500,000.' }
             ].map((feature, i) => (
-              <div key={i} style={{ padding: '16px' }}>
-                <div style={{ color: 'var(--brand-accent)', marginBottom: '24px' }}>
+              <div key={i} style={{ padding: '16px', position: 'relative' }}>
+                <div style={{ color: 'var(--brand-accent)', marginBottom: '32px', filter: 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.4))' }}>
                   {feature.icon}
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '12px', fontFamily: 'Outfit', color: 'white' }}>{feature.title}</h3>
-                <p style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: 1.6 }}>{feature.desc}</p>
+                <h3 style={{ fontSize: '22px', fontWeight: 700, marginBottom: '16px', fontFamily: 'Outfit', color: 'white', letterSpacing: '-0.3px' }}>{feature.title}</h3>
+                <p style={{ color: 'rgba(255, 255, 255, 0.65)', lineHeight: 1.7, fontSize: '15px' }}>{feature.desc}</p>
               </div>
             ))}
           </div>
