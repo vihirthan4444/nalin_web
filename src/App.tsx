@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Search, ShoppingCart, ChevronDown, Bell } from 'lucide-react';
 
 const App = () => {
