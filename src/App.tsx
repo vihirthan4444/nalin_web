@@ -26,29 +26,30 @@ const App = () => {
       {/* Main Header & Search */}
       <header className="main-header">
         <div className="container header-inner">
-          <img src="/full_logo.svg" alt="Nalin IT" style={{ height: '40px', cursor: 'pointer' }} />
+          <img src="/full_logo.svg" alt="Nalin IT" style={{ height: '44px', cursor: 'pointer', flexShrink: 0 }} />
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)', cursor: 'pointer' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)', cursor: 'pointer', flexShrink: 0, lineHeight: 1.2 }}>
             Shop by <br/> category <ChevronDown size={14} />
           </div>
 
-          <div className="search-container">
-            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '16px', color: 'var(--text-muted)' }}>
-              <Search size={20} />
+          <div className="search-wrapper">
+            <div className="search-container">
+              <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '16px', color: 'var(--text-muted)' }}>
+                <Search size={20} />
+              </div>
+              <input type="text" className="search-input" placeholder="Search for anything" />
+              <select className="category-select">
+                <option>All Categories</option>
+                <option>Laptops</option>
+                <option>Desktops</option>
+                <option>Monitors</option>
+                <option>Printers</option>
+              </select>
             </div>
-            <input type="text" className="search-input" placeholder="Search for anything" />
-            <select className="category-select">
-              <option>All Categories</option>
-              <option>Laptops</option>
-              <option>Desktops</option>
-              <option>Monitors</option>
-              <option>Printers</option>
-            </select>
+            <button className="search-btn">Search</button>
           </div>
           
-          <button className="search-btn">Search</button>
-          
-          <a href="#" style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Advanced</a>
+          <a href="#" style={{ fontSize: '12px', color: 'var(--text-muted)', flexShrink: 0 }}>Advanced</a>
         </div>
       </header>
 
@@ -152,71 +153,71 @@ const App = () => {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <h4>Buy</h4>
+              <h4>Products</h4>
               <ul>
-                <li><a href="#">Registration</a></li>
-                <li><a href="#">Nalin IT Money Back Guarantee</a></li>
-                <li><a href="#">Bidding & buying help</a></li>
-                <li><a href="#">Stores</a></li>
+                <li><a href="#">Laptops & Notebooks</a></li>
+                <li><a href="#">Desktop Computers</a></li>
+                <li><a href="#">Monitors & Displays</a></li>
+                <li><a href="#">PC Components</a></li>
+                <li><a href="#">Printers & Scanners</a></li>
+                <li><a href="#">Networking Gear</a></li>
               </ul>
             </div>
             <div className="footer-col">
-              <h4>Sell</h4>
+              <h4>IT Services</h4>
               <ul>
-                <li><a href="#">Start selling</a></li>
-                <li><a href="#">Learn to sell</a></li>
-                <li><a href="#">Affiliates</a></li>
+                <li><a href="#">Corporate IT Solutions</a></li>
+                <li><a href="#">Warranty & Repairs</a></li>
+                <li><a href="#">Custom PC Builds</a></li>
+                <li><a href="#">Network Installation</a></li>
               </ul>
-              <h4 style={{ marginTop: '24px' }}>Tools & apps</h4>
+              <h4 style={{ marginTop: '24px' }}>Top Brands</h4>
               <ul>
-                <li><a href="#">Developers</a></li>
-                <li><a href="#">Security center</a></li>
-                <li><a href="#">Site map</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Stay connected</h4>
-              <ul>
-                <li><a href="#">Nalin IT's Blogs</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
+                <li><a href="#">HP</a></li>
+                <li><a href="#">ASUS</a></li>
+                <li><a href="#">Lenovo</a></li>
+                <li><a href="#">MSI</a></li>
               </ul>
             </div>
             <div className="footer-col">
-              <h4>About Nalin IT</h4>
+              <h4>Showrooms</h4>
               <ul>
-                <li><a href="#">Company info</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Investors</a></li>
+                <li><a href="#">Nalin IT Exclusive (Jaffna)</a></li>
+                <li><a href="#">HP World Northern (Jaffna)</a></li>
+                <li><a href="#">Nalin IT Kilinochchi</a></li>
+                <li><a href="#">Nalin IT Mannar</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About Nalin IT</a></li>
                 <li><a href="#">Careers</a></li>
-                <li><a href="#">Government relations</a></li>
-                <li><a href="#">Advertise with us</a></li>
-                <li><a href="#">Policies</a></li>
+                <li><a href="#">Customer Testimonials</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
               </ul>
             </div>
             <div className="footer-col">
-              <h4>Help & Contact</h4>
+              <h4>Contact Us</h4>
               <ul>
-                <li><a href="#">Seller Information Center</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="#">195/2, Parameshwara Junction, Palaly Road, Jaffna.</a></li>
+                <li><a href="#">021 222 1121</a></li>
+                <li><a href="#">nalinshowroom@nit.lk</a></li>
               </ul>
-              <h4 style={{ marginTop: '24px' }}>Showrooms</h4>
-              <ul>
-                <li>Nalin IT Exclusive</li>
-                <li>HP World Northern</li>
-                <li>Nalin IT Kilinochchi</li>
-                <li>Nalin IT Mannar</li>
+              <h4 style={{ marginTop: '24px' }}>Follow Us</h4>
+              <ul style={{ display: 'flex', flexDirection: 'row', gap: '12px' }}>
+                <li><a href="#" style={{ color: 'var(--text-blue)', fontWeight: 600 }}>Facebook</a></li>
+                <li><a href="#" style={{ color: 'var(--text-blue)', fontWeight: 600 }}>Instagram</a></li>
+                <li><a href="#" style={{ color: 'var(--text-blue)', fontWeight: 600 }}>LinkedIn</a></li>
               </ul>
             </div>
           </div>
           
-          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', display: 'flex', justifyContent: 'center', gap: '12px' }}>
-            <span>Copyright © 2009-2026 Nalin Information Technologies. All Rights Reserved.</span>
-            <a href="#" style={{ textDecoration: 'underline' }}>Accessibility</a>
-            <a href="#" style={{ textDecoration: 'underline' }}>User Agreement</a>
-            <a href="#" style={{ textDecoration: 'underline' }}>Privacy</a>
-            <a href="#" style={{ textDecoration: 'underline' }}>Payments Terms of Use</a>
-            <a href="#" style={{ textDecoration: 'underline' }}>Cookies</a>
+          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <span>Copyright © 2009-2026 Nalin Information Technologies Pvt Ltd. All Rights Reserved.</span>
+            <a href="#" style={{ textDecoration: 'underline' }}>Privacy Policy</a>
+            <a href="#" style={{ textDecoration: 'underline' }}>Terms of Service</a>
           </div>
         </div>
       </footer>
